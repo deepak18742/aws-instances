@@ -1,0 +1,198 @@
+What Is Amazon EC2?
+Amazon EC2 is a web-based service that provides scalable compute power on Amazon Web Services. AWS refers to the underlying servers as EC2 Instances. We will discuss how EC2 instances differ from traditional virtual machines shortly.
+
+You can spin up virtually unlimited virtual machines (VMs) in the cloud instead of managing, optimizing, and adding your own computing hardware to your on-premises network.You can spin up an EC2 instance for any purpose, such as creating a SQL database.
+
+You can also increase or decrease the computing capacity you need to run various business processes.
+
+On AWS, EC2 instances can run a variety of operating systems and AWS services. s Linux variants, Windows and macOS, as well as custom operating systems.
+
+In addition, VM Export/Import enables you to upload on-premises VM images to Amazon EC2. The system converts them to EC2 instances so they can be readily available for cloud computing.
+
+What is the difference between an Amazon EC2 instance and a virtual machine?
+EC2 instances differ in several ways from regular virtual machines (VMs).
+
+There are Auto Scaling Groups built into EC2 instances. Thus, EC2 instances can increase and decrease their compute(vCPU, memory, network bandwidth) power as needed.
+
+Auto Scaling Group
+To handle increased demand, EC2 instances add additional capacity whenever your provisioned compute power approaches its maximum limit.
+
+AWS charges you per hour for compute capacity used. Unlike traditional virtual machines, you do not pay a minimum fee. In addition, you don’t have to provision a minimum computing capacity in advance.
+
+Because EC2 instances do not share memory between them, they offer superior performance and availability.
+
+However, EC2 instances only keep data for as long as they are running. In contrast, you can switch VMs on and off without losing data as long as the VM is on the same physical server. For this reason, AWS offers Amazon Elastic Block Store (EBS) to help make EC2 instances more durable. You can also backup EC2 data to Amazon S3.
+
+
+The Cloud Cost Playbook
+What Is Amazon ECS?
+AWS’s Elastic Container Service (ECS) is a fully managed container orchestration service. By using ECS, you can focus on building your application rather than maintaining the infrastructure on which it will run.
+
+ECS resources are scalable, just like EC2. However, ECS scales container clusters on-demand, rather than scaling compute resources like EC2.
+
+A major benefit of ECS is that it supports Docker containers. For managing and deploying Kubernetes containers on AWS, you should consider Amazon’s Elastic Kubernetes Services (EKS).
+
+ECS orchestrates Docker containers, but the containers run on EC2 instances. EC2 instances provide the virtual machines that Docker containers need in order to run.
+
+AWS released ECS Anywhere in May 2021. ECS Anywhere is the on-premises version of Amazon ECS. By using ECS Anywhere, you can run, secure, and scale Docker containers on customer-managed infrastructure.
+
+The following image shows how ECS Anywhere works:
+
+ECS Anywhere
+Credit: AWS
+
+With ECS Anywhere, AWS engineers manage the backend, so you don’t have to worry about operating cluster management software. This is an advantage if you are looking to manage containers on your own infrastructure..
+
+However, you can still go serverless by directing the tasks and services to AWS Fargate. Here’s our guide to ECS vs. EKS vs. Fargate for more information.
+
+
+What Is Amazon S3?
+S3 is a scalable cloud storage service that engineers use in the AWS public cloud for object storage. An object comprises data, metadata, and its assigned name (key). The service hosts these components in S3 buckets.
+
+Using Amazon S3, engineers can store, retrieve, and back up any amount of data from anywhere, anytime, and on any device. Also, you can choose which type of S3 storage to use based on your business needs, just as you can choose which EC2 instances to use.
+
+S3 is highly scalable, available, affordable, secure, durable, and simple to use through a web-based interface, the Amazon S3 Console.
+
+How does Amazon S3 compare to Amazon EBS vs. Amazon EFS?
+Amazon EBS is the high-availability storage volume for EC2 instances at the block level. As mentioned earlier, EC2 instances retain dataonly while they are running. When using EBS, you can keep data after an instance is terminated or shut down — just as you would with a regular VM.
+
+With Amazon Elastic File Service (EFS) option, you get a scalable file storage service that enables you to store data from multiple EC2 instances. So it’s the ideal solution for sharing files between EC2 instances but with high performance and automated features. This differs from EBS, which is high-performance and scalable storage paired with a single EC2 instance.
+
+You can also use EFS to store code and media files across the AWS region boundary with VPC peering. Like EBS, EFS is optimized for EC2 instances, which means it is not ideal for complex querying tasks. That’s S3’s job.
+
+Amazon S3 is a massive, cloud-based object storage service. Moreover, S3 storage is not restricted to only serving EC2 instances. Other AWS services rely on it for data storage as well. A service can access S3 storage either programmatically or directly.
+
+As an example, you can use it with AWS Lake Formation as a data lake. You can use this when collecting large quantities of data to feed your Artificial Intelligence system or Machine Learning algorithm.
+
+The following image illustrates the differences between object storage in S3 and block-level storage in EBS.
+
+storage in s3 and ebs
+
+What Is Amazon Lambda?
+AWS Lambda is an event-driven service that uses serverless architecture to run applications without requiring any administration. Lambda does not require you to manage runtimes, servers, or clusters.
+
+Instead, you write code in a supported language, such as Node.js, Go, Java, or Python, to create a Lambda Function. The function concept is similar to a small application written in one of the supported languages. Every function runs in its own container.
+
+The AWS Lambda interface allows you to upload a container image or Zip file that contains the lambda function. In this way, Lambda will allocate your workload with the exact compute power it needs to run an event or incoming request when various triggers occur.
+
+To understand how Lambda works, you have to know what serverless computing is. Serverless computing refers to a cloud-native application development approach in which engineers do not have to manage servers or clusters.
+
+Cloud service providers, such as AWS, manage both the scaling of apps and the cloud infrastructure. Amazon Lambda does not give you access to the infrastructure.
+
+Furthermore, when you upload code through Lambda, it is deployed into a container. After that, AWS creates, deploys, and manages the containers on your behalf.
+
+
+EC2 Vs. Lambda Vs. ECS Vs. S3 Use Cases: When To Use Each AWS Core Service
+By now, you’ve probably noticed that all four AWS services have unique use cases.
+
+S3 is AWS’s go-to cloud storage option.
+EC2 is the computing service that enables applications to run on AWS.
+Lambda provides managed serverless computing on Amazon Web Services.
+ECS is an AWS service that orchestrates Docker containers.
+S3 is also not directly comparable to the rest of these core AWS services. Meanwhile, there has been a growing trend of DevOps engineers comparing EC2, Lambda, and ECS. To compare the three, we’ll examine ideal use cases, performance, security, and cost.
+
+Compared to AWS Lambda, EC2 runs a full copy of the operating system and all the necessary hardware to run the OS. Managing and provisioning the EC2 environment is therefore required.
+
+On the other hand, Lambda only needs a few system resources and dependencies to run a specific function. AWS handles everything else.
+
+The EC2 platform, however, gives you a great deal of control over your application and its environment. As an example, you can select what type of EC2 instances (AWS virtual machines) to run the app on, from the CPU to the RAM to the storage options.
+
+Using and optimizing EC2 instances requires advanced skills, time, and even money. It simplifies using EC2 instances by supplying preconfigured instances and by letting engineers control instances with APIs or web interfaces. In addition, EC2 instances automatically scale during peak times and decrease during off-peak times, boosting performance and saving money.
+
+What are some examples of EC2 use cases?
+These are some of the ideal uses of EC2 instances:
+
+Pick an excellent operating system and decide which AWS services run on it using Amazon Machine Images.
+Create and run custom applications.
+Configure your environment, including security, types of EC2 instances, and scaling capacity.
+Recovery from a disaster.
+Run high-performance, long-running applications with low latency.
+Develop, deploy, and test complex applications and environments.
+Backup your data as often as possible to minimize data loss.
+Many companies find AWS configuration time-consuming and technically daunting. Amazon knows this, which is why it created ECS and Lambda.
+
+With AWS Lambda, engineers are relieved of scalability and infrastructure management.
+
+What are some examples of AWS Lambda use cases?
+You can use Lambda to:
+
+Work on a quick task.
+Make your application event-driven instead of remaining active around the clock, which boosts performance during peak times and saves costs off-peak.
+Reduce engineering costs by paying for only the resources you use.
+Delegate infrastructure management to AWS, including updating architecture components and patching security holes.
+Achieve faster time to market. Lambda supports continuous integration and continuous delivery (CI/CD) practices, so you can improve your code after launching a minimum viable product.
+Process data in real-time.
+Operate serverless websites.
+Convert documents into various formats rapidly, especially if their content changes frequently.
+Run uneven workloads with long pauses between executions over the course of a day.
+So, is AWS Lambda better than EC2? Determining the right solution for your organization means taking into account your unique needs.
+
+Besides, EC2 is not a direct competitor since you can schedule and deploy Docker containers both in serverless mode and on EC2 instances. Moreover, you can skip the server selection process by using AWS Fargate with ECS.
+
+What are some other examples of ECS use cases?
+They include:
+
+You can complete both short-lived and long-running tasks.
+Create EC2 instances for containers, including automating the process of selecting which EC2 instance will run which containers.
+Scale the Docker container fleet automatically.
+We have already covered some S3 use cases and why you might prefer S3 over EBS or EFS as a storage option. In the next section, we will compare EC2 with AWS Lambda in more detail.
+
+
+EC2 Vs. AWS Lambda: How They Compare
+They both provide computing services, albeit they do so differently. So, is AWS Lambda the better choice for you, or is it EC2?
+
+1. Performance and availability
+There are several powerful differences you need to be aware of before choosing EC2 or AWS Lambda.
+
+If you switch on an EC2 instance, it runs until you shut down or terminate it. Lambda functions are off by default and are only activated when your setup is called upon (trigger) to serve a request (event).
+While that means AWS Lambda can be the more cost-effective of the two, reactivating Lambda functions every time may lead to latency issues, which EC2 instances do not present — unless you start a new container.
+AWS Lambda is unsuitable for latency-sensitive or complex applications because latency will affect their performance or make them unavailable.
+Also, AWS Lambda is optimal for tasks that last no more than 15 minutes (900 seconds), while AWS EC2 is optimal for running long-running tasks or apps with varying execution times.
+Lambda also limits how much memory you can use (3008 MB) and how many Lambda instances can run concurrently (usually 1000-3000).
+Lambdas are always available, unlike EC2 instances, which become available on-demand. You will not be charged for Lambdas that you haven’t used yet.
+
+2. Scalability
+Both Amazon EC2 and AWS Lambda can scale resources up to handle the increased load or scale them down to save money when you’re not using them. Like EC2 instances, Lambda instances allow you to scale up or down the number of concurrently running functions.
+
+With Amazon EC2, you’ll need to define the minimum, desired, and maximum capacities you need manually. You can use Auto Scaling Groups to make this process easier.
+
+Rather than slowing your application down when your load reaches the maximum threshold, Lambda continues scaling up by 500 instances every minute. Lambda can scale down to zero instances once the load decreases to optimize costs.
+
+In contrast, EC2 instances require manual adjustment when your application load reaches maximum capacity. Plus, EC2 instances don’t automatically scale lower than your pre-set threshold.
+
+Lambda is not perfect either. An API Gateway 5XX error will be returned if you invoke a Lambda function after the API Gateway timeout of 30 seconds. The only way to fix this issue is to keep resubmitting the request until it is approved.
+
+Even so, scalability is still one of the most significant advantages of AWS Lambda.
+
+The other advantage of Lambda is that AWS manages most of the infrastructure backend, such as selecting and maintaining the most suitable operating systems. As a DevOps engineer using EC2, you would be responsible for modifying, administering, and optimizing the infrastructure.
+
+3. Security
+Because AWS Lambda functions are stateless, malicious agents have a hard time growing on them over time. In addition, AWS engineers monitor, patch, and maintain infrastructure security on your behalf. This is a good thing because:
+
+It reduces the security gaps you must focus on when protecting your application.
+Engineers at Amazon Web Services have been great so far at stopping malicious attacks.
+An attack, such as a DDOS attack, would be no match for AWS Lambda, which would just scale up to accommodate the load, allowing your application’s workflows to persist through the attack.
+
+The downside is, Lambda instances automatically scale beyond set limits, so something like this can increase your AWS bill quite quickly. Without a cloud cost intelligence platform to detect and alert you to such cost anomalies, you would quickly go over your AWS budget for the month.
+
+
+EC2 allows you to implement security best practices at the instance level. A single EC2 instance can have several security layers. Still, the security layer determines what traffic to route to in what instance. There may also be multiple connectivity protocols to follow, such as UDP, TCP, and ICMP.
+
+You also need to create valid policies to have the appropriate permissions. Besides, you still need to set up multiple configurations to prevent your workload from deteriorating in performance and availability in the event of a DDOS attack.
+
+You can see that managing security in EC2 instances is not only time-consuming but also opens up much room for human error, opening your applications up to even more attacks or performance degradation. While AWS Shield can ramp up your defenses, you might not have good cost visibility into your infrastructure while this occurs, leading to cost overruns.
+
+4. Pricing and other costs
+As both Lambda and EC2 offer a pay-as-you-go pricing structure, they are cost-effective alternatives to traditional VM environments.
+
+Lambda charges by the number of requests served, and by the length of time it takes to execute code. You can calculate Lambda pricing here to see what you can expect to pay in a month.
+
+EC2 charges by the second. EC2 hourly pricing depends on several variables, including:
+
+CPU performance
+RAM Memory capacity
+Graphics card performance
+Storage capacity you use
+It doesn’t matter if the running instance executes or not. Having an instance running is what counts.
+
+This is one reason many organizations struggle to control and reduce AWS spend. Cost anomalies occur in the absence of visibility into EC2 instances or Lambda functions. The costs add up undetected and end up eating the organization’s gross margins.
